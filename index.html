@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#173f32"><title>RaithuMitra AI — Farming Assistant</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/"><span class="logo">🌱</span><span><strong>RaithuMitra <em>AI</em></strong><small>YOUR LOCAL FARMING MITRA</small></span></a>
+  <div class="header-actions"><span class="demo-pill"><i></i> DEMO MODE</span><label class="language-label" for="language">Language</label><select id="language"><option value="en">English</option><option value="te">తెలుగు</option></select></div>
+</header>
+<main class="layout">
+  <aside class="sidebar">
+    <button id="new-chat" class="new-chat">＋ <span data-en="New conversation" data-te="కొత్త సంభాషణ">New conversation</span></button>
+    <div class="side-label" data-en="YOUR FARM PROFILE" data-te="మీ పొలం వివరాలు">YOUR FARM PROFILE</div>
+    <form id="profile-form" class="profile-form">
+      <label><span data-en="Village" data-te="గ్రామం">Village</span><input id="village" placeholder="e.g. Anantapur"></label>
+      <label><span data-en="Mandal" data-te="మండలం">Mandal</span><input id="mandal" placeholder="Your mandal"></label>
+      <label><span data-en="District" data-te="జిల్లా">District</span><select id="district"><option>Anantapur</option><option>Sri Sathya Sai</option><option>Kurnool</option><option>YSR Kadapa</option><option>Chittoor</option><option>Prakasam</option><option>Other</option></select></label>
+      <label><span data-en="Main crop" data-te="ప్రధాన పంట">Main crop</span><select id="crop"><option value="groundnut">Groundnut / వేరుశనగ</option><option value="red gram">Red gram / కందులు</option><option value="millets">Millets / చిరుధాన్యాలు</option><option value="other">Other</option></select></label>
+      <label><span data-en="Sowing date (optional)" data-te="విత్తిన తేదీ (ఐచ్ఛికం)">Sowing date (optional)</span><input id="sowing-date" type="date"></label>
+      <label><span data-en="Growth stage" data-te="పంట దశ">Growth stage</span><select id="growth-stage"><option value="unknown">Not sure</option><option value="sowing">Sowing / విత్తడం</option><option value="seedling">Seedling / మొలక</option><option value="vegetative">Vegetative / పెరుగుదల</option><option value="flowering">Flowering / పూత</option><option value="pod formation">Pod formation / కాయ దశ</option><option value="maturity">Maturity / కోతకు ముందు</option></select></label>
+      <label><span data-en="Soil type" data-te="నేల రకం">Soil type</span><select id="soil"><option value="unknown">Not sure</option><option value="red">Red soil</option><option value="black">Black soil</option><option value="sandy">Sandy / light soil</option></select></label>
+      <label><span data-en="Water availability" data-te="నీటి లభ్యత">Water availability</span><select id="water"><option value="rainfed">Rain-fed only</option><option value="limited">Limited irrigation</option><option value="available">Irrigation available</option></select></label>
+      <button class="save-profile" type="submit" data-en="Save profile" data-te="వివరాలు భద్రపరచండి">Save profile</button>
+    </form>
+    <div class="sidebar-bottom"><span>🔐</span><p data-en="Demo session only. Avoid entering sensitive personal or financial details." data-te="డెమో సెషన్ మాత్రమే. వ్యక్తిగత లేదా ఆర్థిక రహస్య వివరాలు ఇవ్వవద్దు.">Demo session only. Avoid entering sensitive personal or financial details.</p></div>
+  </aside>
+
+  <section class="chat-panel">
+    <div class="chat-top">
+      <div class="assistant-icon">🌱</div><div class="chat-heading"><h1>RaithuMitra AI</h1><p><span class="online-dot"></span><span data-en="Farming decision assistant" data-te="వ్యవసాయ నిర్ణయ సహాయకుడు">Farming decision assistant</span></p></div>
+      <button id="speak-last" class="header-icon" title="Read last answer aloud" aria-label="Read last answer aloud">🔊</button>
+    </div>
+    <div class="notice"><b>ⓘ</b><span data-en="Demo mode: no live weather or connected AI model. Sources are linked where available; advice requiring local confirmation is flagged." data-te="డెమో: ప్రత్యక్ష వాతావరణం లేదా AI మోడల్ కనెక్ట్ కాలేదు. స్థానిక నిర్ధారణ అవసరమైన సూచనలకు గుర్తింపు ఉంటుంది.">Demo mode: no live weather or connected AI model. Sources are linked where available; advice requiring local confirmation is flagged.</span></div>
+    <div id="messages" class="messages" aria-live="polite">
+      <div class="welcome-wrap"><div class="welcome-mark">🌾</div><div class="welcome-kicker" data-en="NAMASKARAM · WELCOME" data-te="నమస్కారం · స్వాగతం">NAMASKARAM · WELCOME</div><h2 data-en="How can I help your farm today?" data-te="ఈ రోజు మీ పొలానికి ఎలా సహాయం చేయగలను?">How can I help your farm today?</h2><p data-en="Tell me what is happening in your field. I can help you think through rainfall, sowing and crop-stage questions." data-te="మీ పొలంలో ఏమి జరుగుతోందో చెప్పండి. వర్షం, విత్తడం మరియు పంట దశ గురించి ఆలోచించడంలో సహాయం చేస్తాను.">Tell me what is happening in your field. I can help you think through rainfall, sowing and crop-stage questions.</p><div class="welcome-bilingual">మీ పంట, వర్షం లేదా పొలం గురించి అడగండి — Ask me about your crop, rainfall or field.</div></div>
+    </div>
+    <div class="quick-actions">
+      <div class="quick-title" data-en="SUGGESTED QUESTIONS" data-te="సూచించిన ప్రశ్నలు">SUGGESTED QUESTIONS</div>
+      <div class="quick-grid">
+        <button class="quick" data-question="Rainfall advice: rain has been irregular in my area. What should I check?"><span>🌦️</span><b data-en="Rainfall advice" data-te="వర్ష సూచనలు">Rainfall advice</b></button>
+        <button class="quick" data-question="Give crop-stage guidance for my selected crop."><span>🌱</span><b data-en="Crop guidance" data-te="పంట సూచనలు">Crop guidance</b></button>
+        <button class="quick" data-question="My crop leaves look yellow or spotted. What should I do?"><span>🍃</span><b data-en="Crop problems" data-te="పంట సమస్యలు">Crop problems</b></button>
+        <button class="quick" data-question="What should I check before sowing groundnut or pulses?"><span>🧑‍🌾</span><b data-en="Sowing advice" data-te="విత్తే సలహా">Sowing advice</b></button>
+        <button class="quick" data-question="Where can I verify current government schemes for farmers?"><span>🏛️</span><b data-en="Government schemes" data-te="ప్రభుత్వ పథకాలు">Government schemes</b></button>
+      </div>
+    </div>
+    <div id="typing" class="typing hidden"><span></span><span></span><span></span><small data-en="RaithuMitra is preparing a demo response…" data-te="నమూనా సమాధానం సిద్ధమవుతోంది…">RaithuMitra is preparing a demo response…</small></div>
+    <form id="chat-form" class="composer">
+      <button id="mic" type="button" class="composer-tool" title="Voice input" aria-label="Voice input">🎙️</button>
+      <label class="upload-tool" title="Upload crop photo">📷<input id="photo" type="file" accept="image/png,image/jpeg,image/webp" hidden></label>
+      <input id="question" autocomplete="off" placeholder="Ask RaithuMitra about your field…" aria-label="Your question">
+      <button id="send" class="send" type="submit" aria-label="Send message">➤</button>
+    </form>
+    <div class="composer-foot"><span data-en="Use local expert advice for high-impact decisions." data-te="ముఖ్యమైన నిర్ణయాలకు స్థానిక నిపుణుడి సలహా తీసుకోండి.">Use local expert advice for high-impact decisions.</span><span id="connection">● Demo rules active</span></div>
+  </section>
+</main>
+<footer><span>🌱 RaithuMitra AI</span><span data-en="Student prototype · Not an official government service" data-te="విద్యార్థి నమూనా · ప్రభుత్వ అధికారిక సేవ కాదు">Student prototype · Not an official government service</span><a href="https://mausam.imd.gov.in/" target="_blank" rel="noopener">IMD Weather ↗</a></footer>
+<script src="/static/app.js"></script>
+</body></html>

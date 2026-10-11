@@ -1,0 +1,88 @@
+{
+  "notice": "This starter knowledge base contains cautious general educational reminders. It is not a verified agronomy recommendation database. Replace or augment records only after checking official documents.",
+  "items": [
+    {
+      "title": "IMD Mausam official weather portal",
+      "organisation": "India Meteorological Department (IMD)",
+      "url": "https://mausam.imd.gov.in/",
+      "updated": "Check portal for latest update",
+      "type": "official-link",
+      "tags": [
+        "rainfall",
+        "weather",
+        "groundnut",
+        "red gram",
+        "millets",
+        "general"
+      ]
+    },
+    {
+      "title": "ANGRAU official website",
+      "organisation": "Acharya N. G. Ranga Agricultural University (ANGRAU)",
+      "url": "https://angrau.ac.in/",
+      "updated": "Check source page for latest update",
+      "type": "official-link",
+      "tags": [
+        "sowing",
+        "crop_stage",
+        "groundnut",
+        "red gram",
+        "millets",
+        "general"
+      ]
+    },
+    {
+      "title": "ICAR official website",
+      "organisation": "Indian Council of Agricultural Research (ICAR)",
+      "url": "https://icar.org.in/",
+      "updated": "Check source page for latest update",
+      "type": "official-link",
+      "tags": [
+        "crop_stage",
+        "crop_problem",
+        "groundnut",
+        "red gram",
+        "general"
+      ]
+    },
+    {
+      "title": "Andhra Pradesh Agriculture Department portal",
+      "organisation": "Government of Andhra Pradesh — Agriculture",
+      "url": "https://apagrisnet.gov.in/",
+      "updated": "Check portal for current scheme details",
+      "type": "official-link",
+      "tags": [
+        "schemes",
+        "sowing",
+        "general"
+      ]
+    },
+    {
+      "title": "Demo rule: verify local forecast before field decisions",
+      "organisation": "RaithuMitra AI prototype",
+      "url": "https://mausam.imd.gov.in/",
+      "updated": "Prototype rule; reviewed 2026-10-11",
+      "type": "illustrative",
+      "tags": [
+        "rainfall",
+        "weather",
+        "general"
+      ]
+    },
+    {
+      "title": "Demo rule: inspect crop stage and ask local experts for treatment decisions",
+      "organisation": "RaithuMitra AI prototype",
+      "url": "https://angrau.ac.in/",
+      "updated": "Prototype rule; reviewed 2026-10-11",
+      "type": "illustrative",
+      "tags": [
+        "crop_stage",
+        "crop_problem",
+        "groundnut",
+        "red gram",
+        "sowing",
+        "general"
+      ]
+    }
+  ]
+}
